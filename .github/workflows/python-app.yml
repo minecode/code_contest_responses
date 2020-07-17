@@ -26,8 +26,8 @@ jobs:
       - name: Copy test file
         uses: canastro/copy-file-action@master
         with:
-          source: "${{steps.split.outputs._0}}/resolution_test.py"
-          target: "${{env.commitmsg}}/resolution_test.py"
+          source: "./${{steps.split.outputs._0}}/resolution_test.py"
+          target: "./${{env.commitmsg}}/resolution_test.py"
       
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
