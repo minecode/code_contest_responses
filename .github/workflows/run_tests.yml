@@ -27,8 +27,8 @@ jobs:
       - name: Copy test file
         uses: canastro/copy-file-action@master
         with:
-          source: "./contests/${{steps.split.outputs._0}}/${{steps.split.outputs._1}}/resolution_test.py"
-          target: "./contests/${{env.commitmsg}}/resolution_test.py"
+          source: "./${{steps.split.outputs._0}}/${{steps.split.outputs._1}}/resolution_test.py"
+          target: "./${{env.commitmsg}}/resolution_test.py"
       
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
@@ -36,13 +36,13 @@ jobs:
           python-version: 3.6
           
       - name: Install dependencies
-        working-directory: ./contests/${{steps.split.outputs._0}}
+        working-directory: ./${{steps.split.outputs._0}}
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
       - name: Test with pytest
-        working-directory: ./contests/${{env.commitmsg}}
+        working-directory: ./${{env.commitmsg}}
         run: pytest -vv
 
       - name: Update database
