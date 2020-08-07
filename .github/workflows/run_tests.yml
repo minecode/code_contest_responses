@@ -48,5 +48,5 @@ jobs:
       - name: Update database
         uses: satak/webrequest-action@master
         with:
-          url: https://code-contest-backend.herokuapp.com/contests/${{env.commitmsg}}/100
+          url: https://code-contest-backend.herokuapp.com/contests/${{steps.split.outputs._2}}/${{steps.split.outputs._0}}/${{steps.split.outputs._1}}/100
           method: POST
